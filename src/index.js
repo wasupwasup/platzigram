@@ -7,7 +7,7 @@ page('/', function (ctx, next) {
 })
 
 page('/signup', function (ctx, next) {
-  main.innerHTML = 'signupHome<a href="/">home</a>'
+  main.innerHTML = 'signupHome<a href="/">home</a><a href="/signin">signin!</a>'
 })
 
 page()
