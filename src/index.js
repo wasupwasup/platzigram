@@ -1,7 +1,8 @@
 var page = require('page');
 
-require('./homepage/index');
-require('./signup/index');
+require('./homepage');
+require('./signup');
+require('./signin');
 
 
 page()
