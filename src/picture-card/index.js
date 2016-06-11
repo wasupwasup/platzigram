@@ -1,5 +1,6 @@
 var yo = require('yo-yo');
 var moment = require('moment')
+var translate = require('../translate');
 
 module.exports = function pictureCard(pic){
   var el
@@ -14,11 +15,11 @@ module.exports = function pictureCard(pic){
         <img src="${picture.user.avatar}" class="avatar" />
         <span class="usename">${picture.user.username}</span>
       </a>
-      <small class="right time">${moment(picture.createAt).fromNow()}</small>
+      <small class="right time">${translate.date.format(picture.createAt)}</small>
       <p>
         <a onclick=${like.bind(null, true)} href="#" class="left"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
         <a onclick=${like.bind(null, false)} href="#" class="left"><i class="fa fa-heart" aria-hidden="true"></i></a>
-        <span class="left likes">${picture.likes} me gusta</span>
+        <span class="left likes">${translate.message('likes', { likes: picture.likes} )}</span>
       </p>
     </div>
   </div>`
