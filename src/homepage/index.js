@@ -14,7 +14,8 @@ page('/', function (ctx, next) {
       },
       url:'http://materializecss.com/images/office.jpg',
       likes: 800,
-      liked: true
+      liked: true,
+      createAt: new Date()
     },
     {
       user: {
@@ -23,7 +24,8 @@ page('/', function (ctx, next) {
       },
       url:'http://materializecss.com/images/office.jpg',
       likes: 1000,
-      liked: true
+      liked: true,
+      createAt: new Date().setDate(new Date().getDate() - 10)
     }
 
   ]

@@ -106,7 +106,7 @@ $avatar-size: 48px;
   display:block;
 }
 .card .fa-heart {
-  color: red;
+  color: $secondary-color;
   display: none;
 }
 .card.liked{
