@@ -103,4 +103,17 @@ $avatar-size: 48px;
 
 .card .fa-heart-o {
   color: $secondary-color;
+  display:block;
+}
+.card .fa-heart {
+  color: red;
+  display: none;
+}
+.card.liked{
+  .fa-heart{
+    display: block;
+  }
+  .fa-heart-o{
+    display:none;
+  }
 }
