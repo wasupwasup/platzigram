@@ -4,8 +4,9 @@ var template = require('./template');
 var title = require('title');
 var request = require('superagent');
 var header = require('../header');
+var axios = require('axios')
 
-page('/', header, loadPicture, function (ctx, next) {
+page('/', header, asyncLoad, function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
 
@@ -23,4 +24,40 @@ function loadPicture(ctx, next) {
       ctx.pictures = res.body
       next()
     })
+}
+
+function loadPictureAxios(ctx, next) {
+  axios
+    .get('/api/pictures')
+    .then(function (res) {
+      ctx.pictures = res.data
+      next()
+    })
+    .catch(function (err) {
+      console.log(err);
+    })
+}
+
+function loadPictureFetch(ctx, next) {
+  fetch('/api/pictures')
+    .then(function (res) {
+      return res.json()
+    })
+    .then(function(pictures){
+      ctx.pictures = pictures
+      next()
+    })
+    .catch(function (err) {
+      console.log(err);
+    })
+}
+
+async function asyncLoad (ctx, next) {
+  try {
+    ctx.pictures = await fetch('api/pictures').then(res => res.json())
+    next()
+  }
+  catch (err) {
+    return console.log(err);
+  }
 }
